@@ -1,0 +1,47 @@
+{
+  "name": "nano-banana-classic",
+  "description": "Classic nano banana art style palette with 5 distinct visual themes",
+  "basePrompt": "A tiny nano-sized banana",
+  "styles": [
+    {
+      "id": "cyberpunk",
+      "label": "Cyberpunk",
+      "colors": ["neon pink", "electric blue", "chrome yellow"],
+      "theme": "futuristic cyberpunk cityscape",
+      "mood": "vibrant and energetic",
+      "artisticStyle": "digital art, sharp lines, glowing neon"
+    },
+    {
+      "id": "watercolor",
+      "label": "Watercolor",
+      "colors": ["soft yellow", "pastel green", "warm brown"],
+      "theme": "peaceful garden scene",
+      "mood": "calm and serene",
+      "artisticStyle": "watercolor painting, soft edges, translucent washes"
+    },
+    {
+      "id": "pixel",
+      "label": "Pixel Art",
+      "colors": ["bright yellow", "dark outline black", "leaf green"],
+      "theme": "retro video game world",
+      "mood": "playful and nostalgic",
+      "artisticStyle": "16-bit pixel art, blocky, retro game aesthetic"
+    },
+    {
+      "id": "baroque",
+      "label": "Baroque",
+      "colors": ["gold", "deep crimson", "ivory"],
+      "theme": "ornate classical still life",
+      "mood": "dramatic and opulent",
+      "artisticStyle": "oil painting, chiaroscuro lighting, rich textures"
+    },
+    {
+      "id": "minimal",
+      "label": "Minimalist",
+      "colors": ["mustard yellow", "white", "charcoal gray"],
+      "theme": "clean abstract composition",
+      "mood": "elegant and understated",
+      "artisticStyle": "flat design, geometric shapes, minimal detail"
+    }
+  ]
+}
