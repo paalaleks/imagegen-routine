@@ -139,21 +139,40 @@ export NANOBANANA_MODEL=gemini-3-pro-image-preview
 
 ## Output Location
 
-All generated images are saved to `./nanobanana-output/` in the current working directory. This means images are always saved relative to whatever project you're working in.
+Images are saved to a folder named after the current project in the working directory.
+
+**Before generating, determine the project name:**
+```bash
+# Try git repo name first, fall back to current directory name
+PROJECT_NAME=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || pwd)")
+```
+
+Then save images to `./${PROJECT_NAME}-images/` (e.g., `./my-website-images/`).
+
+Create the folder if it doesn't exist:
+```bash
+mkdir -p "./${PROJECT_NAME}-images"
+```
+
+When running nanobanana commands, the output goes to `./nanobanana-output/` by default. After generation, **move the images** to the project-named folder:
+```bash
+mv ./nanobanana-output/* "./${PROJECT_NAME}-images/" 2>/dev/null
+```
 
 ## Presenting Results
 
 After generation completes:
-1. List contents of `./nanobanana-output/` to find generated files
-2. Present the most recent image(s) to the user
-3. Offer to regenerate with variations if needed
+1. Move generated images from `./nanobanana-output/` to `./${PROJECT_NAME}-images/`
+2. List contents of `./${PROJECT_NAME}-images/` to find generated files
+3. Present the most recent image(s) to the user
+4. Offer to regenerate with variations if needed
 
 ## Refinements and Iterations
 
 When the user asks for changes:
 - **"Try again" / "Give me options"**: Regenerate with `--count=3`
 - **"Make it more [adjective]"**: Adjust prompt and regenerate
-- **"Edit this one"**: Use `gemini --yolo "/edit nanobanana-output/filename.png 'adjustment'"`
+- **"Edit this one"**: Use `gemini --yolo "/edit ${PROJECT_NAME}-images/filename.png 'adjustment'"`
 - **"Different style"**: Apply a different palette style or add `--styles="requested_style"`
 - **"Try all styles"**: Generate the same prompt with each palette style
 

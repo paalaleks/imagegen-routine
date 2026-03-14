@@ -94,7 +94,9 @@ Once the skill is installed, Claude Code automatically uses it for image request
 
 ## Output
 
-Images are saved to `./nanobanana-output/` in your **current working directory**. This means you can run it from any project and images land right there.
+Images are saved to a folder named after your project. The skill auto-detects the project name from the git repo or current directory name.
+
+For example, if you're working in `my-website`, images save to `./my-website-images/`.
 
 ## Model Selection
 
